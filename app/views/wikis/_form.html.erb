@@ -1,0 +1,47 @@
+<%= form_for @wiki, :html => { :class => "form-horizontal wiki" } do |f| %>
+
+    <% if @wiki.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@wiki.errors.count, "error") %> prohibited this wiki from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @wiki.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :title, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :title, :class => 'form-control' %>
+    </div>
+    <%= error_span(@wiki[:title]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :body, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :body, size: "60x12", :class => 'form-control' %>
+    </div>
+    <%= error_span(@wiki[:body]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :private, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :private %>
+    </div>
+    <%= error_span(@wiki[:private]) %>
+  </div>
+
+<div class='row'><br>
+  <div class='col-md-4'>
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            wikis_path, :class => 'btn btn-default' %>
+  </div>
+</div>
+<% end %>
