@@ -5,35 +5,43 @@ class WikisController < ApplicationController
 
   def index
     @wikis = Wiki.all
+    authorize @wikis
     respond_with(@wikis)
   end
 
   def show
+    authorize @wiki
     respond_with(@wiki)
   end
 
   def new
     @wiki = Wiki.new
+    authorize @wiki
     respond_with(@wiki)
   end
 
   def edit
     @wiki = Wiki.find(params[:id])
+    @user = @wiki.user
+    authorize @wiki
   end
 
   def create
     @wiki = Wiki.new(wiki_params)
     @wiki.user_id = current_user.id
+    authorize @wiki
     @wiki.save
     respond_with(@wiki)
   end
 
   def update
     @wiki.update(wiki_params)
+    authorize @wiki
     respond_with(@wiki)
   end
 
   def destroy
+    authorize @wiki
     @wiki.destroy
     respond_with(@wiki)
   end

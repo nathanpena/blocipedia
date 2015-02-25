@@ -29,6 +29,8 @@
     </div>
     <%= error_span(@wiki[:body]) %>
   </div>
+  <%# The condition checks that you are admin or premium and the creator of the wiki unless you are creating a new wiki %>
+  <% if current_user.role != 'standard' && (@wiki.user == current_user || @wiki.user == nil) %>
   <div class="control-group">
     <%= f.label :private, :class => 'control-label' %>
     <div class="controls">
@@ -36,7 +38,7 @@
     </div>
     <%= error_span(@wiki[:private]) %>
   </div>
-
+  <% end %>
 <div class='row'><br>
   <div class='col-md-4'>
   <%= f.submit nil, :class => 'btn btn-primary' %>
