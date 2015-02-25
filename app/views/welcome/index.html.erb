@@ -34,7 +34,7 @@
           <h3>Free Plan</h3>
           <p>Create unlimited public wikis!</p>
           <p>
-            <a href="<" class="btn btn-primary">Buy Now!</a> 
+            <%= link_to "Free Now!", new_user_registration_path, class: "btn btn-primary" %>
           </p>
         </div>
       </div>
@@ -47,7 +47,7 @@
           <h3>Premium Plan</h3>
           <p>Create private wikis!</p>
           <p>
-            <a href="#" class="btn btn-primary">Buy Now!</a>
+            <%= link_to "Buy Now!", edit_user_registration_path(anchor: "subscription"), class: 'btn btn-primary btn-sm' %>
           </p>
         </div>
       </div>

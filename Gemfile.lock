@@ -47,6 +47,8 @@ GEM
       warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.3.0)
+    faker (1.4.3)
+      i18n (~> 0.5)
     figaro (1.0.0)
       thor (~> 0.14)
     hike (1.2.3)
@@ -71,6 +73,8 @@ GEM
     multi_json (1.10.1)
     orm_adapter (0.5.0)
     pg (0.18.1)
+    pundit (0.3.0)
+      activesupport (>= 3.0.0)
     rack (1.5.2)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -147,11 +151,13 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
   devise
+  faker
   figaro (= 1.0)
   jbuilder (~> 2.0)
   jquery-rails
   less-rails
   pg
+  pundit
   rails (= 4.1.8)
   rails_12factor
   sass-rails (~> 4.0.3)
