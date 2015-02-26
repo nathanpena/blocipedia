@@ -1,18 +1,14 @@
-<main class='content'><div class='row'>
-<div class='cell cell--xs well well--l'>
-<div class='split mbm'>
-<div class='split-item'>
-<h1 class='h2 split-cell split-cell--fluid'>My Subscription</h1>
+<main class='content'>
+<div class='row'>
+<h1 class='h2 split-cell split-cell--fluid'>Subscription Status: <%= current_user.role %></h1>
 </div>
-</div>
-<div class='card card--a mbm tac'>
-<div class='card-section subscription-details'>
-<h2>Individual Month with Trial Enrollment</h2>
+
+<div class='jumbotron'>
+<h2>Create Private Wikis with One Time Subscription</h2>
 <p>
 <i class='icn icn--correct mrxs'>
-Subscribed
-$29.00/month
+Subscribe
+$15.00 <%= link_to "Upgrade", new_charge_path, class: "btn btn-primary" %>
 </i>
 </p>
-
 </div>
