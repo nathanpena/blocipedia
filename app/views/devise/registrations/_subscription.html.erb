@@ -4,11 +4,18 @@
 </div>
 
 <div class='jumbotron'>
-<h2>Create Private Wikis with One Time Subscription</h2>
 <p>
 <i class='icn icn--correct mrxs'>
+<% if current_user.subscription.upgraded == false %>
+<h2>Create Private Wikis with One Time Subscription</h2>
 Subscribe
 $15.00 <%= link_to "Upgrade", new_charge_path, class: "btn btn-primary" %>
+<% else %>
+<p>You Are Currently Upgraded</p>
+<p> If you would like to downgrade click 
+<%= link_to "Downgrade", :controller => :subscriptions, :action => :downgrade, class: "btn btn-primary" %>
+</p>
+<% end %>
 </i>
 </p>
 </div>

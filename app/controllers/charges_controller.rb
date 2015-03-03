@@ -18,9 +18,12 @@ class ChargesController < ActionController::Base
    )
  
    flash[:success] = "Thanks for all the money, #{current_user.email}! Feel free to pay me again."
-   user = current_user
-   user.role = 'premium'
-   user.save
+   @user = current_user
+   @user.role = 'premium'
+   @user.save
+   @user.create_subscription(
+    subscription_type: "premium",
+    upgraded: true)
    redirect_to edit_user_registration_path(anchor: "subscription") # or wherever
  
  # Stripe will send back CardErrors, with friendly messages

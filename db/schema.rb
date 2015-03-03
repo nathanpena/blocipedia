@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150224231345) do
+ActiveRecord::Schema.define(version: 20150303021207) do
+
+  create_table "subscriptions", force: true do |t|
+    t.string   "subscription_type"
+    t.boolean  "upgraded"
+    t.boolean  "has_upgraded"
+    t.datetime "subscription_end_date"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "subscriptions", ["user_id"], name: "index_subscriptions_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "username"
