@@ -30,7 +30,7 @@
     <%= error_span(@wiki[:body]) %>
   </div>
   <%# The condition checks that you are admin or premium and the creator of the wiki unless you are creating a new wiki %>
-  <% if current_user.role != 'standard' && (@wiki.user == current_user || @wiki.user == nil) %>
+  <% if current_user.upgraded? && (@wiki.user == current_user || @wiki.user.nil?) %>
   <div class="control-group">
     <%= f.label :private, :class => 'control-label' %>
     <div class="controls">
