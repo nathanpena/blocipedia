@@ -23,5 +23,13 @@ class User < ActiveRecord::Base
   def premium?
     role == 'premium'
   end
+
+  def upgraded?
+
+    if (role != 'standard')
+      true
+    end
+
+  end
   
 end
