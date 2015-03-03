@@ -1,0 +1,14 @@
+<main class='content'>
+<div class='row'>
+<h1 class='h2 split-cell split-cell--fluid'>Subscription Status: <%= current_user.role %></h1>
+</div>
+
+<div class='jumbotron'>
+<h2>Create Private Wikis with One Time Subscription</h2>
+<p>
+<i class='icn icn--correct mrxs'>
+Subscribe
+$15.00 <%= link_to "Upgrade", new_charge_path, class: "btn btn-primary" %>
+</i>
+</p>
+</div>

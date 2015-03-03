@@ -22,3 +22,6 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'devise'
 gem 'figaro', '1.0'
+gem 'pundit'
+gem 'faker'
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
