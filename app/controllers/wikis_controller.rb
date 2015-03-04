@@ -4,7 +4,7 @@ class WikisController < ApplicationController
   respond_to :html
 
   def index
-    @wikis = Wiki.all
+    @wikis = Wiki.visible_to(current_user)
     authorize @wikis
     respond_with(@wikis)
   end
