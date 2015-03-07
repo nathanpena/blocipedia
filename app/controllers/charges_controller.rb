@@ -22,8 +22,8 @@ class ChargesController < ActionController::Base
    @user.role = 'premium'
    @user.save
    @user.create_subscription(
-    subscription_type: "premium",
-    upgraded: true)
+    subscription_end_date: Time.now + 1.month,
+    auto_renew: true)
    redirect_to edit_user_registration_path(anchor: "subscription") # or wherever
  
  # Stripe will send back CardErrors, with friendly messages

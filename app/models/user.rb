@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
 
   has_many :wikis, dependent: :destroy
 
-  has_one :subscription
+  has_many :subscriptions
 
   def admin?
     role == 'admin'

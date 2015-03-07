@@ -1,21 +1,14 @@
 class SubscriptionsController < ApplicationController
-
+respond_to :js
 def downgrade
-  @user = current_user
-  @subscription = @user.subscription
+  @subscription = current_user.subscriptions.last
   @subscription.update(
-    subscription_type: "standard",
-    upgraded: false,
-    has_upgraded: true,
-    subscription_end_date: set_end_date
+    auto_renew: false    
     )
-end
-
-private
-
-def set_end_date
-  d = Date.today
-  return Date.civil(d.year, d.month, -1)
+  if @subscription.update
+    flash[:notice] = "Subscription will terminate #{@subscription.subscription_end_date}"
+  else 
+    flash[:error] = "The site failed to cancel your subscription. Contact support at support.app.com"
 end
 
 end

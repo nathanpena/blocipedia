@@ -5,5 +5,4 @@ Rails.application.routes.draw do
   resources :users, only: [:update]
   root to: 'welcome#index'
   resources :charges, only: [:new, :create]
-  
 end
