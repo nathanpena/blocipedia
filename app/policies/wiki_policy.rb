@@ -1,7 +1,7 @@
 class WikiPolicy < ApplicationPolicy
 
 def update?
-  user.present? && record.public? 
+  user.present?  
 end
 
 def edit?
@@ -14,6 +14,10 @@ end
 
 def destroy?
  user.present? && (record.user == user || user.admin? )
+end
+
+def show?
+  true 
 end
 
 end

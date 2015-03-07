@@ -32,18 +32,18 @@
   <%# The condition checks that you are admin or premium and the creator of the wiki unless you are creating a new wiki %>
   <% if current_user.upgraded? && (@wiki.user == current_user || @wiki.user.nil?) %>
   <div class="control-group">
-    <%= f.label :private, :class => 'control-label' %>
+    <%= f.label :private %>
     <div class="controls">
       <%= f.check_box :private %>
     </div>
-    <%= error_span(@wiki[:private]) %>
   </div>
   <% end %>
-<div class='row'><br>
+  <div class='row'><br>
   <div class='col-md-4'>
-  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= f.submit :class => 'btn btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
             wikis_path, :class => 'btn btn-default' %>
   </div>
-</div>
+  </div>
+
 <% end %>
