@@ -26,15 +26,16 @@ class WikisController < ApplicationController
   end
 
   def create
-    @wiki = Wiki.new(wiki_params)
-    @wiki.user_id = current_user.id
-    authorize @wiki
+    @wiki = Wiki.create(wiki_params)
+    @wiki.user_id = current_user.id   
     @wiki.save
+    authorize @wiki
     respond_with(@wiki)
   end
 
   def update
     @wiki.update(wiki_params)
+    @wiki.save
     authorize @wiki
     respond_with(@wiki)
   end

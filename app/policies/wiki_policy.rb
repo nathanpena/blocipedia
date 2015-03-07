@@ -5,7 +5,7 @@ def update?
 end
 
 def edit?
-  user.present? && record.public? 
+  update?
 end
 
 def index?
@@ -17,7 +17,7 @@ def destroy?
 end
 
 def show?
-  record.public? 
+  true 
 end
 
 end
