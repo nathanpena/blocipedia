@@ -25,3 +25,4 @@ gem 'figaro', '1.0'
 gem 'pundit'
 gem 'faker'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+gem 'whenever', :require => false

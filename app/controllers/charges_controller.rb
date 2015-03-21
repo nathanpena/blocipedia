@@ -1,7 +1,7 @@
 class ChargesController < ActionController::Base
 
  def create
- 
+  
    # Creates a Stripe Customer object, for associating
    # with the charge
    customer = Stripe::Customer.create(
@@ -13,15 +13,17 @@ class ChargesController < ActionController::Base
    charge = Stripe::Charge.create(
      customer: customer.id, # Note -- this is NOT the user_id in your app
      amount: Amount.default,
-     description: "BigMoney Membership - #{current_user.email}",
      currency: 'usd'
    )
+
+   save_stripe_customer_id(current_user, customer.id)
  
    flash[:success] = "Thanks for all the money, #{current_user.email}! Feel free to pay me again."
    @user = current_user
    @user.role = 'premium'
    @user.save
-   @user.create_subscription(
+   Subscription.create(
+    user_id: current_user.id,
     subscription_end_date: Time.now + 1.month,
     auto_renew: true)
    redirect_to edit_user_registration_path(anchor: "subscription") # or wherever

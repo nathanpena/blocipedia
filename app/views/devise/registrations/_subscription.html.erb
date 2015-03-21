@@ -14,7 +14,7 @@ $15.00 <%= link_to "Upgrade", new_charge_path, class: "btn btn-primary" %>
 <p>You currently have a subscription</p>
 <div id="downgrade">  
 <p> If you would like to downgrade click 
-<%= link_to "Downgrade", :controller => :subscriptions, :action => :downgrade, class: "btn btn-primary", remote: true %> 
+<%= link_to "Downgrade", downgrade_subscription_path, class: "btn btn-primary" %>
 </p>
 </div>
 <% end %>
