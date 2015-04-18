@@ -10,7 +10,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
-  has_many :wikis, dependent: :destroy
+  has_many :collaborators
+  has_many :wikis, through: :collaborators, dependent: :destroy
+  has_many :subscriptions
 
   def admin?
     role == 'admin'
@@ -24,12 +26,17 @@ class User < ActiveRecord::Base
     role == 'premium'
   end
 
+  def save_stripe_customer_id(user, customer_id)
+    user.customer_id = customer_id
+    user.save
+  end
+
+  def get_stripe_customer_id(user)
+    return user.customer_id
+  end
+
   def upgraded?
-
-    if (role != 'standard')
-      true
-    end
-
+    !standard?
   end
   
 end
