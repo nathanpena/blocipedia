@@ -13,6 +13,14 @@ old_wiki_count = Wiki.count
    user.save!
  end
 
+   user = User.new(
+   username: 'Nathan Pena',
+   email:    'nathan.pena83@gmail.com',
+   password: 'helloworld'
+ )
+ user.skip_confirmation!
+ user.save!
+
  users = User.all
 
   # Create Lists

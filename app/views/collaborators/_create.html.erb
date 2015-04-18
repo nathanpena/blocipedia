@@ -1,0 +1,11 @@
+
+<% User.all.each do |u| %>
+<tr>
+  <td><%= u.username %></td>
+  <% if @wiki.collaborators.pluck("user_id").include?(u.id) %>
+    <td><%= link_to "Remove", remove_collaborator_path(@wiki.id, u.id), method: :delete%></td>
+  <% else %>
+    <td><%= link_to "Add", add_collaborator_path(@wiki.id, u.id), method: :post %></td>
+  <% end %>
+</tr>
+<% end %>
