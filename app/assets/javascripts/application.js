@@ -22,7 +22,6 @@ if ( window.location.hash == "#subscription" ) {
 } 
 else {
   $('#dashboard').addClass('active');
-  $('li').eq(1).addClass('active');
 }
 
 });
