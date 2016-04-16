@@ -26,3 +26,4 @@ gem 'pundit'
 gem 'faker'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'whenever', :require => false
+gem 'redcarpet'

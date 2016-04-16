@@ -13,7 +13,7 @@ has_many :users, through: :collaborators
     if !user.present?
       publicly_viewable 
     elsif (user.role == 'admin' || user.role == 'premium') 
-      all 
+      all.private 
     else 
       publicly_viewable 
      end}

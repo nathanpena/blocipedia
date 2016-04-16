@@ -14,8 +14,8 @@
   <tbody>
     <% @wikis.each do |wiki| %>
       <tr>
-        <td><%= wiki.title %></td>
-        <td><%= truncate(wiki.body, length: 20) %></td>
+        <td><%= markdown_to_html wiki.title %></td>
+        <td><%= markdown_to_html truncate(wiki.body, length: 20) %></td>
         <td><%= wiki.user.username %></td>
         <td>
           
